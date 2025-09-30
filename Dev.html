@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Naomi — Web Developer
+    <div class="logo" aria-hidden>NM</div>
+  </title>
+  
+  <meta name="description" content="Personal portfolio for a web developer showing services, projects and contact details." />
+  <style>
+    :root{
+      --bg:#0f1724; /* deep navy */
+      --card:#0b1220;
+      --muted:#9aa6bf;
+      --accent:#38bdf8; /* sky */
+      --glass: rgba(255,255,255,0.04);
+      --radius:14px;
+      color-scheme: dark;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; background:linear-gradient(180deg,#061226 0%, #071226 60%); color:#e6eef8; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; padding:28px;
+    }
+    .container{max-width:1100px;margin:0 auto}
+
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700}
+    nav{display:flex;gap:14px}
+    nav a{color:var(--muted);text-decoration:none;font-weight:600}
+    nav a:hover{color:var(--accent)}
+
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:center;margin-bottom:28px}
+    .intro{padding:24px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border-radius:var(--radius)}
+    h1{margin:0;font-size:28px}
+    p.lead{color:var(--muted);margin-top:12px;line-height:1.55}
+    .cta{margin-top:18px;display:flex;gap:12px}
+    .btn{padding:10px 14px;border-radius:10px;background:var(--accent);border:none;color:#06202b;font-weight:700;cursor:pointer}
+    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+    .profile-card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:18px;border-radius:12px;text-align:center}
+    .avatar{width:120px;height:120px;border-radius:18px;margin:0 auto 10px;display:block;background:linear-gradient(135deg,#9b7cff,#38bdf8)}
+    .role{color:var(--muted);font-weight:700}
+    .skills{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:12px}
+    .skill{background:var(--glass);padding:6px 10px;border-radius:999px;font-size:13px;color:var(--muted)}
+
+    section{margin-bottom:22px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:14px;border-radius:12px}
+    .card h3{margin:0 0 8px 0}
+    .muted{color:var(--muted);font-size:14px}
+
+    .projects .grid{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .project-thumb{height:150px;border-radius:10px;background:linear-gradient(135deg,#0f1724,#0b1530);display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:700}
+
+    .contact-form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    textarea{min-height:120px;resize:vertical}
+
+    footer{margin-top:28px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;align-items:center}
+
+    /* responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      nav{display:none}
+    }
+    @media (max-width:520px){
+      .grid{grid-template-columns:1fr}
+      .container{padding:0 12px}
+      .contact-form{grid-template-columns:1fr}
+    }
+
+    /* small utilities */
+    .flex{display:flex;gap:8px;align-items:center}
+    .tag{font-size:12px;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.02);}
+
+    /* modal */
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(2,6,23,0.6),rgba(2,6,23,0.85));z-index:90}
+    .modal.active{display:flex}
+    .modal-card{width:min(880px,96%);background:#07122a;padding:20px;border-radius:12px}
+    .close{background:transparent;border:0;color:var(--muted);font-weight:700;cursor:pointer}
+
+  </style>
+   
+</head>
+<header>
+     <nav a>
+        <div> 
+        <div class="menu"><a href="#services">Services</a></div>
+       <div class="menu"> <a href="#projects">Projects</a></div>
+        <div class="menu "><a href="#about">About</a></div>
+        <div class="menu "><a href="#contact">Contact</a></div>
+        </div>
+      <button action="onclick" location="nav a">MENU</button></nav a>
+  </header>
+<body>
+  
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden>NM</div>
+        <div>
+          <div style="font-weight:700">Naomi</div>
+          <div class="muted" style="font-size:13px">Web Developer • Frontend & backend</div>
+        </div>
+      </div>
+
+    
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="intro">
+          <h1>Hi — I build delightful websites and apps.</h1>
+          <p class="lead">I create fast, accessible, and responsive web experiences using modern HTML,php CSS JavaScript etc. I help small businesses and startups launch polished digital products.</p>
+          <div class="cta">
+            <button class="btn" id="hireBtn">Hire me</button>
+            <a class="btn secondary" href="#projects">See projects</a>
+          </div>
+
+          <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">
+            <div class="tag">HTML</div>
+            <div class="tag">CSS</div>
+            <div class="tag">JavaScript</div>
+            <div class="tag">Responsive</div>
+          </div>
+        </div>
+
+        <aside class="profile-card">
+          <div class="avatar" aria-hidden></div>
+          <div style="font-weight:700">Naomi</div>
+          <div class="role">Frontend Developer and Backend Developer</div>
+          <div class="skills">
+            <div class="skill">React</div>
+            <div class="skill">Vanilla JS</div>
+            <div class="skill">Tailwind</div>
+            <div class="skill">Accessibility</div>
+          </div>
+          <div style="margin-top:12px" class="muted">Based in Nakuru• Available for freelance</div>
+        </aside>
+      </section>
+
+      <section id="services">
+        <h2 style="margin-bottom:8px">Services</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Website Development</h3>
+            <div class="muted">Responsive sites, landing pages, and web apps.</div>
+          </div>
+          <div class="card">
+            <h3>UI Design</h3>
+            <div class="muted">Design systems, prototypes, and polished interfaces.</div>
+          </div>
+          <div class="card">
+            <h3>Maintenance & SEO</h3>
+            <div class="muted">Performance tuning, accessibility checks, and basic SEO.</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="projects">
+        <h2 style="margin-bottom:8px">Selected projects</h2>
+        <div class="grid">
+          <!-- Project 1 -->
+          <article class="card project" data-title="E-commerce Landing" data-desc="Single-page e-commerce landing with product gallery and checkout flow demo." data-link="#">
+            <div class="project-thumb">E‑commerce</div>
+            <h3 style="margin-top:10px">E-commerce Landing</h3>
+            <div class="muted">HTML • JS • Stripe (demo)</div>
+            <div style="margin-top:10px" class="flex">
+              <button class="btn" data-action="view">View</button>
+              <a class="btn secondary" href="#" style="text-decoration:none">Source</a>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="card project" data-title="Portfolio CMS" data-desc="A small CMS for creatives to manage portfolios and posts." data-link="#">
+            <div class="project-thumb">CMS</div>
+            <h3 style="margin-top:10px">Portfolio CMS</h3>
+            <div class="muted">React • Node • MongoDB</div>
+            <div style="margin-top:10px" class="flex">
+              <button class="btn" data-action="view">View</button>
+              <a class="btn secondary" href="#" style="text-decoration:none">Source</a>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="card project" data-title="Local Business Site" data-desc="Website for a local cafe with online menu and reservation form." data-link="#">
+            <div class="project-thumb">Local Biz</div>
+            <h3 style="margin-top:10px">Local Business Site</h3>
+            <div class="muted">HTML • CSS • JS</div>
+            <div style="margin-top:10px" class="flex">
+              <button class="btn" data-action="view">View</button>
+              <a class="btn secondary" href="#" style="text-decoration:none">Source</a>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <section id="about">
+        <h2 style="margin-bottom:8px">About me</h2>
+        <div class="card">
+          <p class="muted">I’m a frontend and backend-focused web developer with a passion for building accessible, high-performance websites. I care about clean code, clear interfaces, and fast load times. When I’m not coding I enjoy photography and open-source.</p>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2 style="margin-bottom:8px">Contact</h2>
+        <div class="card">
+          <form id="contactForm">
+            <div class="contact-form">
+              <input type="text" id="name" placeholder="Your name" required />
+              <input type="email" id="email" placeholder="Your email" required />
+              <input type="text" id="subject" placeholder="Subject (optional)" />
+              <textarea id="message" placeholder="Your message" required></textarea>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:10px;align-items:center">
+              <button class="btn" type="submit">Send message</button>
+              <div class="muted" id="formStatus" aria-live="polite"></div>
+            </div>
+          </form>
+        </div>
+      </section>
+
+    </main>
+     
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal" role="dialog" aria-hidden="true">
+    <div class="modal-card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+        <div>
+          <h3 id="modalTitle">Project</h3>
+          <div class="muted" id="modalSub">Details</div>
+        </div>
+        <button class="close" id="modalClose">Close</button>
+      </div>
+      <div id="modalBody" class="muted">Project description</div>
+      <div style="margin-top:12px;display:flex;gap:10px">
+        <a id="modalLink" class="btn" href="#">Open Project</a>
+        <button class="btn secondary" id="modalSource">View Source</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Basic UI interactions
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Smooth scroll for nav
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const href = a.getAttribute('href');
+        if(href.length > 1){
+          e.preventDefault();
+          document.querySelector(href).scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      });
+    });
+
+    // Project modal
+    const modal = document.getElementById('modal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalSub = document.getElementById('modalSub');
+    const modalBody = document.getElementById('modalBody');
+    const modalLink = document.getElementById('modalLink');
+    const modalSource = document.getElementById('modalSource');
+    const modalClose = document.getElementById('modalClose');
+
+    document.querySelectorAll('.project').forEach(p => {
+      p.querySelector('[data-action="view"]').addEventListener('click', () => {
+        const title = p.getAttribute('data-title');
+        const desc = p.getAttribute('data-desc');
+        const link = p.getAttribute('data-link') || '#';
+        modalTitle.textContent = title;
+        modalSub.textContent = p.querySelector('.muted').textContent;
+        modalBody.textContent = desc;
+        modalLink.href = link;
+        modalSource.onclick = () => window.alert('Replace with your source link or open GitHub.');
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+      });
+    });
+
+    modalClose.addEventListener('click', () => {
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+    });
+    modal.addEventListener('click', (e) => {
+      if(e.target === modal) modalClose.click();
+    });
+
+    // Contact form: simple front-end validation + fake submit (replace with real API)
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('formStatus');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if(!name || !email || !message){
+        status.textContent = 'Please fill the required fields.';
+        return;
+      }
+      status.textContent = 'Sending...';
+      // Simulate send
+      setTimeout(() => {
+        status.textContent = 'Message sent! I will reply to ' + email + ' soon.';
+        form.reset();
+      }, 800);
+    });
+
+    // Hire button triggers contact
+    document.getElementById('hireBtn').addEventListener('click', () => {
+      document.querySelector('#contact').scrollIntoView({behavior:'smooth',block:'start'});
+      document.getElementById('name').focus();
+    });
+
+    // Small accessibility: Enter key on modal close
+    modalClose.addEventListener('keydown', (e) => { if(e.key === 'Enter') modalClose.click(); });
+
+  </script>
+</body>
+<footer>
+ <div>&copy; <span id="year"></span> Naomi</div>
+      <div < class="muted">Built with ❤️ • <a href="#projects" style="color:var(--accent);text-decoration:none">See my work</a>
+      </div>
+</footer>
+</html>
